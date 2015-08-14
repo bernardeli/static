@@ -16,5 +16,17 @@ server {
 }
 EOF
 
+cat > /var/www/index.html <<EOF
+<html>
+<head>
+  <title>Nginx</title>
+</head>
+<body>
+  <h1>Hey!</h1>
+  <h1>I'm running on ${MARATHON_APP_ID}</h1>
+</body>
+</html>
+EOF
+
 exec nginx
 
