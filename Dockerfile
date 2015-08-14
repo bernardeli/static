@@ -1,3 +1,5 @@
 FROM kyma/docker-nginx
 ADD src/ /var/www
-CMD "nginx"
+ADD serve /serve
+
+CMD "/serve"

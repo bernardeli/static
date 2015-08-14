@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ -z  "$PORT" ]; then
+  PORT=80
+fi
+
+cat > /etc/nginx/sites-enabled/default <<EOF
+server {
+  root /var/www;
+  listen ${PORT};
+  server_name localhost;
+
+  location / {
+    index  index.html;
+  }
+}
+EOF
+
+exec nginx
+
